@@ -9,7 +9,14 @@ pipeline {
                 }
             }
             steps {
-                sh 'node --version'
+                sh '''
+                is -la
+                node --version
+                npm --version
+                npm install
+                npm run build
+                is -la
+                '''
             }
         }
     }
